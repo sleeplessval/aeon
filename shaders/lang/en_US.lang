@@ -1,0 +1,19 @@
+
+option.pixelSize=Downscaling
+value.pixelSize.1=Off
+value.pixelSize.2=Low (2x)
+value.pixelSize.4=Medium (4x)
+value.pixelSize.8=High (8x)
+value.pixelSize.16=Silly (16x)
+
+screen.COLOR=Color Depth
+option.RGB=Use RGB
+option.rgbSteps=RGB Depth
+option.hueSteps=Hue Depth
+option.satSteps=Saturation Depth
+option.valSteps=Value Depth
+
+screen.PSX=PSX
+option.vWarp=Vertex Warping
+option.tWarp=Texture Warping
+

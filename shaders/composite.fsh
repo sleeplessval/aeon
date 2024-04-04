@@ -9,8 +9,11 @@
 #define rgbSteps 4 // the number of rgb values to use [2 4 8 16 32 64]
 
 //#define BLACKEN // Whether or not to blackent the background
+#define pixelSize 2 // the size of pixels [1 2 4 8 16]
 
 uniform sampler2D gcolor;
+uniform sampler2D colortex1;
+uniform float viewWidth, viewHeight;
 
 varying vec2 texcoord;
 
@@ -107,8 +110,18 @@ float dither(float color, float dithersteps) {
 }
 
 void main() {
+	vec2 newcoord = texcoord;
+	#if pixelSize > 1
+		vec2 view = vec2(viewWidth, viewHeight) / float(pixelSize);
+		float offset = (ceil(pixelSize * 0.5) - 0.5) / float(pixelSize);
+		newcoord = (floor(newcoord * view) + offset) / view;
+	#endif
+	vec3 color = texture2D(gcolor, newcoord).rgb;
+    //gl_FragData[0] = vec4(vec3(color), 1.0);
+
 	float mask;
-	vec3 ogRGB = texture2D(gcolor, texcoord).rgb;
+	//vec3 ogRGB = texture2D(gcolor, texcoord).rgb;
+	vec3 ogRGB = color;
 	vec3 ogHSV = rgb2hsv(ogRGB).xyz;
     float val = ogHSV.z;
     vec3 ditherhsv = hsv2rgb(vec3(dither(ogHSV.x, hueSteps), dither(ogHSV.y, satSteps), dither(ogHSV.z, valSteps))).rgb;
@@ -120,7 +133,6 @@ void main() {
     #else 
         vec3 final = ditherhsv;
     #endif
-/* DRAWBUFFERS:0 */
-	gl_FragData[0] = vec4(vec3(final), 1.0); //gcolor
+    gl_FragData[0] = vec4(vec3(final), 1.0); //gcolor
 }
 
