@@ -61,11 +61,15 @@ const int indexMatrix8x8[64] = int[](0,  32, 8,  40, 2,  34, 10, 42,
                                      63, 31, 55, 23, 61, 29, 53, 21);
 
 float indexValue() {
-    int x = int(mod(gl_FragCoord.x, 4));
-    int y = int(mod(gl_FragCoord.y, 4));
+    #if pixelSize > 1
+        vec2 coord = gl_FragCoord.xy / pixelSize;
+    #else
+        vec2 coord = gl_FragCoord.xy;
+    #endif
+    int x = int(mod(coord.x, 4));
+    int y = int(mod(coord.y, 4));
     return indexMatrix4x4[(x + y * 4)] / 16.0;
 }
-
 
 float hueDistance(float h1, float h2) {
     float diff = abs((h1 - h2));
