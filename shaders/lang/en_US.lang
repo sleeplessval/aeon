@@ -15,5 +15,6 @@ option.valSteps=Value Depth
 
 screen.PSX=PSX
 option.vWarp=Vertex Warping
-option.tWarp=Texture Warping
+option.tWarp=Affine Textures
+option.tWarp.comment=Emulates affine texture mapping responsible for warping textures on the PSX
 

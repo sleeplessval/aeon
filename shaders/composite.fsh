@@ -117,7 +117,6 @@ void main() {
 		newcoord = (floor(newcoord * view) + offset) / view;
 	#endif
 	vec3 color = texture2D(gcolor, newcoord).rgb;
-    //gl_FragData[0] = vec4(vec3(color), 1.0);
 
 	float mask;
 	//vec3 ogRGB = texture2D(gcolor, texcoord).rgb;
