@@ -1,4 +1,4 @@
-# ɅEON 9X
+# ɅEON 199X
 
 My fork of [Aeon Shader](https://github.com/slinkousart/aeon), aimed at
 expanding its concept to other "retro" graphic effects.
