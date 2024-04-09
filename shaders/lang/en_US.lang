@@ -6,8 +6,11 @@ value.pixelSize.4=Medium (4x)
 value.pixelSize.8=High (8x)
 value.pixelSize.16=Silly (16x)
 
-screen.COLOR=Color Depth
-option.RGB=Use RGB
+screen.COLOR=Color
+option.colorMode=Color Mode
+value.colorMode.0=HSV
+value.colorMode.1=RGB
+option.dithering=Dithering
 option.rgbSteps=RGB Depth
 option.hueSteps=Hue Depth
 option.satSteps=Saturation Depth
@@ -15,6 +18,7 @@ option.valSteps=Value Depth
 
 screen.PSX=PSX
 option.vWarp=Vertex Warping
+option.vWarp.comment=Emulates screen-space vertex snapping responsible for vertex wobble on the PSX
 option.tWarp=Affine Textures
 option.tWarp.comment=Emulates affine texture mapping responsible for warping textures on the PSX
 

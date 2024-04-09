@@ -1,14 +1,14 @@
 #version 120
 
+#define dithering // whether or not to apply dithering
+#define colorMode 0 // hsv/rgb [0 1]
 
 #define hueSteps 8 // the number of hues to use [2 4 8 16 32 64]
 #define satSteps 4 // the number of saturations to use [2 4 8 16 32 64]
 #define valSteps 4 // the number of lightnesses to use [2 4 8 16 32 64] 
 
-//#define RGB // whether to use rgb or hsv [0 1]
 #define rgbSteps 4 // the number of rgb values to use [2 4 8 16 32 64]
 
-//#define BLACKEN // Whether or not to blackent the background
 #define pixelSize 2 // the size of pixels [1 2 4 8 16]
 
 uniform sampler2D gcolor;
@@ -114,6 +114,7 @@ float dither(float color, float dithersteps) {
 }
 
 void main() {
+    // adjust texture coordinate based on pixel size if needed
 	vec2 newcoord = texcoord;
 	#if pixelSize > 1
 		vec2 view = vec2(viewWidth, viewHeight) / float(pixelSize);
@@ -122,19 +123,25 @@ void main() {
 	#endif
 	vec3 color = texture2D(gcolor, newcoord).rgb;
 
-	float mask;
-	//vec3 ogRGB = texture2D(gcolor, texcoord).rgb;
-	vec3 ogRGB = color;
-	vec3 ogHSV = rgb2hsv(ogRGB).xyz;
-    float val = ogHSV.z;
-    vec3 ditherhsv = hsv2rgb(vec3(dither(ogHSV.x, hueSteps), dither(ogHSV.y, satSteps), dither(ogHSV.z, valSteps))).rgb;
-    vec3 nonditherhsv = hsv2rgb(vec3(lightnessStep(ogHSV.x, hueSteps), lightnessStep(ogHSV.y, satSteps), lightnessStep(ogHSV.z, valSteps))).rgb;
-    vec3 ditherrgb = vec3(dither(ogRGB.r, rgbSteps), dither(ogRGB.g, rgbSteps), dither(ogRGB.b, rgbSteps)).rgb;
-    vec3 nonditherrgb = vec3(lightnessStep(ogRGB.r, rgbSteps), lightnessStep(ogRGB.g, rgbSteps), lightnessStep(ogRGB.b, rgbSteps)).rgb;
-    #ifdef RGB 
-        vec3 final = ditherrgb;
-    #else 
-        vec3 final = ditherhsv;
+    #if colorMode == 0
+        color = rgb2hsv(color).xyz;
+    #endif
+
+    vec3 final;
+    #ifdef dithering
+        #if colorMode == 0
+            vec3 filtered = vec3(dither(color.x, hueSteps), dither(color.y, satSteps), dither(color.z, valSteps)).rgb;
+            final = hsv2rgb(filtered);
+        #else
+            final = vec3(dither(color.r, rgbSteps), dither(color.g, rgbSteps), dither(color.b, rgbSteps));
+        #endif
+    #else
+        #if colorMode == 0
+            vec3 filtered = vec3(lightnessStep(color.x, hueSteps), lightnessStep(color.y, satSteps), lightnessStep(color.z, valSteps)).rgb;
+            final = hsv2rgb(filtered);
+        #else
+            final = vec3(lightnessStep(color.r, rgbSteps), lightnessStep(color.g, rgbSteps), lightnessStep(color.b, rgbSteps)).rgb;
+        #endif
     #endif
     gl_FragData[0] = vec4(vec3(final), 1.0); //gcolor
 }
