@@ -9,6 +9,7 @@ expanding its concept to other "retro" graphic effects.
 - Dithering
 - Downscaling
 - PSX Vertex Warping
+- PSX Texture Warping
 
 ## Acknowledgements
 
