@@ -28,7 +28,7 @@ void main() {
 	#endif
 
 	#ifdef tWarp
-		gl_Position /= gl_Position.w;
+		gl_Position /= abs(gl_Position.w);
 	#endif
 }
 
