@@ -7,6 +7,6 @@ vec4 vertex_warp() {
 	vec4 position = gbufferModelViewInverse * gl_ModelViewMatrix * gl_Vertex;
 	vec2 nearest = round(position.xy / position.w * screen) / screen;
 	position.xy = nearest;
-	return (gl_ProjectionMatrix * gbufferModelView * position);
+	gl_Position = gl_ProjectionMatrix * gbufferModelView * position;
 }
 
