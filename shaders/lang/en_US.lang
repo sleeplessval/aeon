@@ -26,6 +26,6 @@ value.vWarp.4=Medium (4x)
 value.vWarp.8=High (8x)
 value.vWarp.16=Extreme (16x)
 value.vWarp.32=Silly (32x)
-option.tWarp=Affine Textures
+option.tWarp=Texture Warping
 option.tWarp.comment=Emulates affine texture mapping responsible for warping textures on the PSX
 

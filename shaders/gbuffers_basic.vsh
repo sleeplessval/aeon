@@ -1,14 +1,15 @@
 #version 120
 
+#define pixelSize 2 // [1 2 4 8 16]
+#define vWarp 0 // psx vertex warp [0 1 2 4 8 16 32]
+//#define tWarp // psx texture warp
+
 varying vec2 texcoord;
 varying vec4 color;
 varying vec2 lmcoord;
 
 uniform mat4 gbufferModelView, gbufferModelViewInverse;
 uniform float viewWidth, viewHeight;
-
-#define pixelSize 2 // [1 2 4 8 16]
-#define vWarp 0 // psx vertex warp [0 1 2 4 8 16 32]
 
 void main() {
 	texcoord = (gl_TextureMatrix[0] * gl_MultiTexCoord0).xy;
@@ -24,6 +25,10 @@ void main() {
 		gl_Position = gl_ProjectionMatrix * gbufferModelView * position;
 	#else
 		gl_Position = ftransform();
+	#endif
+
+	#ifdef tWarp
+		gl_Position /= gl_Position.w;
 	#endif
 }
 
