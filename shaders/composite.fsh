@@ -3,7 +3,7 @@
 #define dithering // whether or not to apply dithering
 #define colorMode 0 // hsv/rgb [0 1]
 
-#define hueSteps 8 // the number of hues to use [2 4 8 16 32 64]
+#define hueSteps 4 // the number of hues to use [2 4 8 16 32 64]
 #define satSteps 4 // the number of saturations to use [2 4 8 16 32 64]
 #define valSteps 4 // the number of lightnesses to use [2 4 8 16 32 64] 
 
