@@ -28,7 +28,4 @@ value.vWarp.16=Extreme (16x)
 value.vWarp.32=Silly (32x)
 option.tWarp=Texture Warping
 option.tWarp.comment=Emulates affine texture mapping responsible for warping textures on the PSX
-option.itemFix=Held Item Fix
-option.itemFix.comment=Exclude held item from texture warping
-
 
