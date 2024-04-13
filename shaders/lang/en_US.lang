@@ -1,4 +1,10 @@
 
+profile.DEFAULT=Default
+profile.AEON=Aeon Upstream
+profile.DOS=DOS
+profile.PSX=PSX
+profile.VR32=VR32
+
 option.pixelSize=Downscaling
 value.pixelSize.1=Off
 value.pixelSize.2=Low (2x)
