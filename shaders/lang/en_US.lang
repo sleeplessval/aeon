@@ -3,6 +3,7 @@ profile.DEFAULT=Default
 profile.AEON=Aeon Upstream
 profile.DOS=DOS
 profile.PSX=PSX
+profile.REALITY=Project Reality
 profile.VR32=VR32
 
 option.pixelSize=Downscaling
@@ -42,10 +43,6 @@ option.dofRes=DoF Dither
 option.dofRes.comment=Whether DoF focus affects dither resolution.
 value.dofRes.0=Static
 value.dofRes.1=Dynamic
-option.worldCurvature=World Curvature
-value.worldCurvature.0=Off
-value.worldCurvature.1=Chunk
-value.worldCurvature.2=Cylinder
-value.worldCurvature.3=Polyhedron
-value.worldCurvature.4=Sphere
+option.hblur=Horizontal Blur
+option.hblur.comment=Emulates the blur responsible for reducing LCD clarity on the N64
 
