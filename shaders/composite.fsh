@@ -1,5 +1,7 @@
 #version 120
 
+#define pixelSize 2 // the size of pixels [1 2 4 8 16]
+
 #define dithering // whether or not to apply dithering
 #define colorMode 0 // hsv/rgb [0 1]
 
@@ -9,13 +11,13 @@
 
 #define rgbSteps 4 // the number of rgb values to use [2 4 8 16 32 64]
 
-#define pixelSize 2 // the size of pixels [1 2 4 8 16]
-
 uniform sampler2D gcolor;
 uniform sampler2D colortex1;
 uniform float viewWidth, viewHeight;
 
 varying vec2 texcoord;
+
+#include "/module/dof.frag"
 
 // All components are in the range [0…1], including hue.
 vec3 rgb2hsv(vec3 c)
@@ -116,7 +118,9 @@ float dither(float color, float dithersteps) {
 void main() {
     // adjust texture coordinate based on pixel size if needed
 	vec2 newcoord = texcoord;
-	#if pixelSize > 1
+    #ifdef dof
+        newcoord = depthOfField();
+    #elif pixelSize > 1
 		vec2 view = vec2(viewWidth, viewHeight) / float(pixelSize);
 		float offset = (ceil(pixelSize * 0.5) - 0.5) / float(pixelSize);
 		newcoord = (floor(newcoord * view) + offset) / view;

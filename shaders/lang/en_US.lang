@@ -36,6 +36,8 @@ option.tWarp=Texture Warping
 option.tWarp.comment=Emulates affine texture mapping responsible for warping textures on the PSX
 
 screen.FX=FX
+option.dof=Depth of Field
+option.dof.comment=Downscale out-of-focus objects
 option.worldCurvature=World Curvature
 value.worldCurvature.0=Off
 value.worldCurvature.1=Chunk
