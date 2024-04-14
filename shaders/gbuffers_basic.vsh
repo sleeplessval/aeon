@@ -2,6 +2,8 @@
 
 #define pixelSize 2 // [1 2 4 8 16]
 
+#define worldCurvature 0 // [0 1 2]
+
 varying vec2 texcoord;
 varying vec4 color;
 varying vec2 lmcoord;
@@ -25,6 +27,10 @@ void main() {
 
 	#ifdef tWarp
 		texture_warp();
+	#endif
+
+	#ifdef WORLD
+		#include "/module/world.vert"
 	#endif
 }
 
