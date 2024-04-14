@@ -1,6 +1,7 @@
 #version 120
 
 #define pixelSize 2 // the size of pixels [1 2 4 8 16]
+float renderRes = pixelSize;
 
 #define dithering // whether or not to apply dithering
 #define colorMode 0 // hsv/rgb [0 1]
@@ -63,7 +64,9 @@ const int indexMatrix8x8[64] = int[](0,  32, 8,  40, 2,  34, 10, 42,
                                      63, 31, 55, 23, 61, 29, 53, 21);
 
 float indexValue() {
-    #if pixelSize > 1
+    #if defined(dof) && defined(dofRes)
+        vec2 coord = gl_FragCoord.xy / renderRes;
+    #elif pixelSize > 1
         vec2 coord = gl_FragCoord.xy / pixelSize;
     #else
         vec2 coord = gl_FragCoord.xy;
