@@ -1,11 +1,12 @@
 # ɅEON 199X
 
-My fork of [Aeon Shader](https://github.com/slinkousart/aeon), aimed at
-expanding its concept to other "retro" graphic effects.
+My fork of [SlinkousArt's Aeon Shader](https://github.com/slinkousart/aeon),
+aimed at expanding its concept to other "retro" graphic effects.
 
 ## Features
 
 - Color depth reduction
+- Depth of Field
 - Dithering
 - Downscaling
 - PSX Vertex Warping
