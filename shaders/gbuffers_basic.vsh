@@ -29,7 +29,7 @@ void main() {
 		texture_warp();
 	#endif
 
-	#ifdef WORLD
+	#ifndef NON_WORLD
 		#include "/module/world.vert"
 	#endif
 }
