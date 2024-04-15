@@ -12,7 +12,11 @@ vec2 depthOfField() {
 	float distance = depth - centerDepthSmooth;
 	int stops = max(min(int(distance * 96), 5), 0);
 
-	float virtualSize = pow(float(pixelSize), 1 + stops);//1 + stops);
+	#if pixelSize > 1
+		float virtualSize = pow(float(pixelSize), 1 + stops);
+	#else
+		float virtualSize = pow(2f, stops);
+	#endif
 	vec2 view = vec2(viewWidth, viewHeight) / virtualSize;
 	float offset = (ceil(virtualSize * 0.5) - 0.5) / virtualSize;
 
