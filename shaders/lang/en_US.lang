@@ -3,6 +3,7 @@ profile.DEFAULT=Default
 profile.AEON=Aeon Upstream
 profile.DOS=DOS
 profile.PSX=PSX
+profile.REALITY=Project Reality
 profile.VR32=VR32
 
 option.pixelSize=Downscaling
@@ -22,9 +23,13 @@ option.hueSteps=Hue Depth
 option.satSteps=Saturation Depth
 option.valSteps=Value Depth
 
-screen.PSX=PSX
+screen.SCREEN=Screen
+
+screen.CONSOLE=Consoles
+
+screen.PSX=PSX (1994)
 option.vWarp=Vertex Warping
-option.vWarp.comment=Emulates screen-space vertex snapping responsible for vertex wobble on the PSX
+option.vWarp.comment=Emulates screen-space vertex snapping responsible for vertex wobble on the Playstation
 value.vWarp.0=Off
 value.vWarp.1=Minimal (1x)
 value.vWarp.2=Low (2x)
@@ -33,7 +38,11 @@ value.vWarp.8=High (8x)
 value.vWarp.16=Extreme (16x)
 value.vWarp.32=Silly (32x)
 option.tWarp=Texture Warping
-option.tWarp.comment=Emulates affine texture mapping responsible for warping textures on the PSX
+option.tWarp.comment=Emulates affine texture mapping responsible for warping textures on the Playstation
+
+screen.REALITY=Project Reality (1996)
+option.hBlur=Horizontal Blur
+option.hBlur.comment=Emulates the blur responsible for reducing LCD clarity on the N64
 
 screen.FX=FX
 option.dof=Depth of Field
