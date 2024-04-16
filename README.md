@@ -1,7 +1,7 @@
 # ɅEON 199X
 
-My fork of [SlinkousArt's Aeon Shader](https://github.com/slinkousart/aeon),
-aimed at expanding its concept to other "retro" graphic effects.
+A Minecraft demake shader and my fork of [SlinkousArt's Aeon Shader](https://github.com/slinkousart/aeon),
+aimed at providing a variety of effects in the vein of its parent project.
 
 ## Features
 
@@ -9,8 +9,10 @@ aimed at expanding its concept to other "retro" graphic effects.
 - Depth of Field
 - Dithering
 - Downscaling
-- PSX Vertex Warping
-- PSX Texture Warping
+- Horizontal Blur
+- Screen-Space Vertex Warping
+- Affine Texture Warping
+- World Curvature
 
 ## Acknowledgements
 
