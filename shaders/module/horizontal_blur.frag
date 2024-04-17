@@ -8,7 +8,7 @@ float avg(float l, float c, float r) {
 vec3 hblur() {
 	vec3 center = texture2D(gcolor, texcoord).rgb;
 
-	vec2 leftPos = texcoord - neigborOffset;
+	vec2 leftPos = texcoord - neighborOffset;
 	vec2 rightPos = texcoord + neighborOffset;
 
 	vec3 left;

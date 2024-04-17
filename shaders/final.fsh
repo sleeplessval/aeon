@@ -11,7 +11,7 @@ uniform float viewWidth;
 #include "/module/horizontal_blur.frag"
 
 void main() {
-	#ifdef hblur
+	#ifdef hBlur
 		vec3 blurred = hblur();
 		gl_FragData[0] = vec4(blurred, 1);
 	#else
