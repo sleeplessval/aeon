@@ -2,8 +2,6 @@
 
 #include "/module/common.glsl"
 
-#define worldCurvature 0 // [0 1 2]
-
 varying vec2 texcoord;
 varying vec4 color;
 varying vec2 lmcoord;
@@ -13,6 +11,7 @@ uniform float viewWidth, viewHeight;
 
 #include "/module/vertex_warp.vert"
 #include "/module/texture_warp.vert"
+#include "/module/world.vert"
 
 void main() {
 	texcoord = (gl_TextureMatrix[0] * gl_MultiTexCoord0).xy;
@@ -30,7 +29,9 @@ void main() {
 	#endif
 
 	#ifndef NON_WORLD
-		#include "/module/world.vert"
+		#if worldCurvature > 0
+			world_curvature();
+		#endif
 	#endif
 }
 

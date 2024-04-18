@@ -56,4 +56,9 @@ option.worldCurvature=World Curvature
 value.worldCurvature.0=Off
 value.worldCurvature.1=Cylinder
 value.worldCurvature.2=Round
+option.worldRadius=Curvature Strength
+value.worldRadius.1024=Low (1024)
+value.worldRadius.512=Medium (512)
+value.worldRadius.256=High (256)
+value.worldRadius.-256=Inverse (-256)
 
