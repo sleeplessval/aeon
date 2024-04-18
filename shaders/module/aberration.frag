@@ -1,5 +1,5 @@
 
-vec2 caOffset = vec2(pixelSize / viewWidth, 0);
+vec2 caOffset = vec2(2 * pixelSize / viewWidth, 0);
 
 vec3 aberrate() {
 	vec2 offset	= caOffset * abs(cos(texcoord * 3.14));
