@@ -1,6 +1,7 @@
 #version 120
 
-#define pixelSize 2 // the size of pixels [1 2 4 8 16]
+#include "/module/common.glsl"
+
 float renderRes = pixelSize;
 
 #define dithering // whether or not to apply dithering

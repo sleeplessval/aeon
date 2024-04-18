@@ -1,6 +1,6 @@
 #version 120
 
-#define pixelSize 2 // [1 2 4 8 16]
+#include "/module/common.glsl"
 
 #define worldCurvature 0 // [0 1 2]
 

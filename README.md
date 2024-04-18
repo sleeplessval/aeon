@@ -5,6 +5,7 @@ aimed at providing a variety of effects in the vein of its parent project.
 
 ## Features
 
+- Chromatic Aberration
 - Color depth reduction
 - Depth of Field
 - Dithering
