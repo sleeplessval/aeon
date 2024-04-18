@@ -10,7 +10,7 @@ const float centerDepthSmoothHalfLife = 16f;
 vec2 depthOfField() {
 	float depth = texture2D(depthtex1, texcoord).x;
 	float distance = depth - centerDepthSmooth;
-	int stops = max(min(int(distance * 96), 5), 0);
+	int stops = max(min(int(sqrt(distance * 256)), 5), 0);
 
 	#if pixelSize > 1
 		float virtualSize = pow(float(pixelSize), 1 + stops);
