@@ -8,7 +8,7 @@ void world_curvature() {
 		gl_Position.y -= 2 * z / worldRadius;
 	#elif worldCurvature == 2
 		vec2 xz = gl_Position.xz;
-		gl_Position.y -= ceil(( dot(xz, xz) * 5 ) / worldRadius) / 5;
+		gl_Position.y -= round(( dot(xz, xz) / worldRadius ) * 8) / 8;
 	#endif
 }
 
