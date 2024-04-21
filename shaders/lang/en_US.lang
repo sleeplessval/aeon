@@ -24,6 +24,7 @@ option.satSteps=Saturation Depth
 option.valSteps=Value Depth
 
 screen.SCREEN=Screen
+option.interlacing=Interlacing
 option.aberration=Chromatic Aberration
 
 screen.CONSOLE=Consoles
