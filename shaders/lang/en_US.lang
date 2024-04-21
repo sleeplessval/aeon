@@ -25,6 +25,7 @@ option.valSteps=Value Depth
 
 screen.SCREEN=Screen
 option.interlacing=Interlacing
+option.scanlines=Scanlines
 option.aberration=Chromatic Aberration
 
 screen.CONSOLE=Consoles

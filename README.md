@@ -11,6 +11,8 @@ aimed at providing a variety of effects in the vein of its parent project.
 - Dithering
 - Downscaling
 - Horizontal Blur
+- Interlacing
+- Scanlines
 - Screen-Space Vertex Warping
 - Affine Texture Warping
 - World Curvature

@@ -4,6 +4,7 @@
 
 //#define aberration
 //#define hBlur
+//#define scanlines
 
 varying vec2 texcoord;
 
@@ -23,6 +24,13 @@ void main() {
 
 	#ifdef aberration
 		color.rb = aberrate().rb;
+	#endif
+
+	#ifdef scanlines
+		if(mod(int(gl_FragCoord.y / (pixelSize * 2)), 2) == 0)
+			color.rgb *= 0.95;
+		else
+			color.rgb /= 0.95;
 	#endif
 
 	gl_FragData[0] = vec4(color, 1);
