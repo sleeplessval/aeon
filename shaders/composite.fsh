@@ -14,12 +14,12 @@ float renderRes = pixelSize;
 #define rgbSteps 4 // the number of rgb values to use [2 4 8 16 32 64]
 
 uniform sampler2D gcolor;
-uniform sampler2D colortex1;
 uniform float viewWidth, viewHeight;
 
 varying vec2 texcoord;
 
 #include "/module/dof.frag"
+#include "/module/interlace.frag"
 
 // All components are in the range [0…1], including hue.
 vec3 rgb2hsv(vec3 c)
@@ -151,6 +151,19 @@ void main() {
             final = vec3(lightnessStep(color.r, rgbSteps), lightnessStep(color.g, rgbSteps), lightnessStep(color.b, rgbSteps)).rgb;
         #endif
     #endif
-    gl_FragData[0] = vec4(vec3(final), 1.0); //gcolor
+
+	#ifdef interlacing
+		/* DRAWBUFFERS:01 */
+		//	pull previous buffer
+		vec3 prev = texture2D(colortex1, texcoord).rgb;
+		//	interlace alternates between odd and even lines on world time
+		if(mod(int(gl_FragCoord.y / pixelSize), 2) == mod(worldTime, 2))
+			gl_FragData[0] = vec4(prev, 1);
+		else
+			gl_FragData[0] = vec4(final, 1);
+		gl_FragData[1] = vec4(final, 1);
+	#else
+		gl_FragData[0] = vec4(final, 1.0);
+	#endif
 }
 
