@@ -24,15 +24,15 @@ void main() {
 		gl_Position = ftransform();
 	#endif
 
-	#ifndef NO_TWARP
-		#ifdef tWarp
-			texture_warp();
-		#endif
-	#endif
-
 	#ifndef NON_WORLD
 		#if worldCurvature > 0
 			world_curvature();
+		#endif
+	#endif
+
+	#ifndef NO_TWARP
+		#ifdef tWarp
+			texture_warp();
 		#endif
 	#endif
 }
