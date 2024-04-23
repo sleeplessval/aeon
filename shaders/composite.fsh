@@ -157,7 +157,7 @@ void main() {
 		//	pull previous buffer
 		vec3 prev = texture2D(colortex1, texcoord).rgb;
 		//	interlace alternates between odd and even lines on world time
-		if(mod(int(gl_FragCoord.y / pixelSize), 2) == mod(worldTime, 2))
+		if(mod(int(gl_FragCoord.y / pixelSize), 2) == mod(frameCounter, 2))
 			gl_FragData[0] = vec4(prev, 1);
 		else
 			gl_FragData[0] = vec4(final, 1);
