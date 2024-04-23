@@ -11,13 +11,12 @@ float renderRes = pixelSize;
 #define satSteps 4 // the number of saturations to use [2 4 8 16 32 64]
 #define valSteps 4 // the number of lightnesses to use [2 4 8 16 32 64] 
 
-#define rgbSteps 4 // the number of rgb values to use [2 4 8 16 32 64]
-
 uniform sampler2D gcolor;
 uniform float viewWidth, viewHeight;
 
 varying vec2 texcoord;
 
+#include "/module/color_depth.frag"
 #include "/module/dof.frag"
 #include "/module/interlace.frag"
 
@@ -104,8 +103,8 @@ vec3[2] closestColors(float hue) {
 }
 
 float lightnessStep(float l, float lightnessSteps) {
-    /* Quantize the lightness to one of `lightnessSteps` values */
-    return floor((0.5 + l * (lightnessSteps - 1.0))) / (lightnessSteps - 1.0);
+    /* Quantize the lightness to one of `lightnessSteps` values */;
+  	return floor((0.5 + l * (lightnessSteps - 1.0))) / (lightnessSteps - 1.0);
 }
 
 float dither(float color, float dithersteps) {
@@ -141,15 +140,20 @@ void main() {
             vec3 filtered = vec3(dither(color.x, hueSteps), dither(color.y, satSteps), dither(color.z, valSteps)).rgb;
             final = hsv2rgb(filtered);
         #else
-            final = vec3(dither(color.r, rgbSteps), dither(color.g, rgbSteps), dither(color.b, rgbSteps));
+            final = vec3(dither(color.r, colormax.x), dither(color.g, colormax.y), dither(color.b, colormax.z));
         #endif
     #else
         #if colorMode == 0
             vec3 filtered = vec3(lightnessStep(color.x, hueSteps), lightnessStep(color.y, satSteps), lightnessStep(color.z, valSteps)).rgb;
             final = hsv2rgb(filtered);
         #else
-            final = vec3(lightnessStep(color.r, rgbSteps), lightnessStep(color.g, rgbSteps), lightnessStep(color.b, rgbSteps)).rgb;
+            final = vec3(lightnessStep(color.r, colormax.x), lightnessStep(color.g, colormax.y), lightnessStep(color.b, colormax.z)).rgb;
         #endif
+    #endif
+
+    #if colorMode == 1 && colorDepth == 1
+        if(final.r == 1)
+            final = monoColor;
     #endif
 
 	#ifdef interlacing
