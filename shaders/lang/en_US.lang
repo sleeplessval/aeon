@@ -34,9 +34,12 @@ option.monoPalette=Mono Palette
 value.monoPalette.0=Black & White
 value.monoPalette.1=Dot Matrix
 value.monoPalette.2=Paint the Town
-option.hueSteps=Hue Depth
-option.satSteps=Saturation Depth
-option.valSteps=Value Depth
+option.hueBits=Hue Depth
+suffix.hueBits=-bit
+option.satBits=Saturation Depth
+suffix.satBits=-bit
+option.valBits=Value Depth
+suffix.valBits=-bit
 
 screen.SCREEN=Screen
 option.interlacing=Interlacing

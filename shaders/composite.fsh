@@ -5,11 +5,6 @@
 float renderRes = pixelSize;
 
 #define dithering // whether or not to apply dithering
-#define colorMode 0 // hsv/rgb [0 1]
-
-#define hueSteps 4 // the number of hues to use [2 4 8 16 32 64]
-#define satSteps 4 // the number of saturations to use [2 4 8 16 32 64]
-#define valSteps 4 // the number of lightnesses to use [2 4 8 16 32 64] 
 
 uniform sampler2D gcolor;
 uniform float viewWidth, viewHeight;
@@ -137,14 +132,14 @@ void main() {
     vec3 final;
     #ifdef dithering
         #if colorMode == 0
-            vec3 filtered = vec3(dither(color.x, hueSteps), dither(color.y, satSteps), dither(color.z, valSteps)).rgb;
+            vec3 filtered = vec3(dither(color.x, hueMax), dither(color.y, satMax), dither(color.z, valMax)).rgb;
             final = hsv2rgb(filtered);
         #else
             final = vec3(dither(color.r, colormax.x), dither(color.g, colormax.y), dither(color.b, colormax.z));
         #endif
     #else
         #if colorMode == 0
-            vec3 filtered = vec3(lightnessStep(color.x, hueSteps), lightnessStep(color.y, satSteps), lightnessStep(color.z, valSteps)).rgb;
+            vec3 filtered = vec3(lightnessStep(color.x, hueMax), lightnessStep(color.y, satMax), lightnessStep(color.z, valMax)).rgb;
             final = hsv2rgb(filtered);
         #else
             final = vec3(lightnessStep(color.r, colormax.x), lightnessStep(color.g, colormax.y), lightnessStep(color.b, colormax.z)).rgb;
