@@ -6,6 +6,7 @@ profile.DOTMATRIX=Dot Matrix Game
 profile.OBRADINN=Return of the Obra Dinn
 profile.PSX=PSX
 profile.REALITY=Project Reality
+profile.SNES=Super Famicom
 profile.VR32=VR32
 
 option.pixelSize=Downscaling
@@ -26,6 +27,8 @@ value.colorDepth.3=3-bit
 value.colorDepth.6=6-bit
 value.colorDepth.8=8-bit
 value.colorDepth.12=12-bit
+value.colorDepth.15=15-bit
+value.colorDepth.18=18-bit
 value.colorDepth.24=Truecolor
 option.monoPalette=Mono Palette
 value.monoPalette.0=Black & White
