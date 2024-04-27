@@ -9,6 +9,7 @@ profile.REALITY=Project Reality
 profile.SNES=Super Famicom
 profile.VR32=VR32
 
+
 option.pixelSize=Downscaling
 value.pixelSize.1=Off
 value.pixelSize.2=Low (2x)
@@ -16,11 +17,15 @@ value.pixelSize.4=Medium (4x)
 value.pixelSize.8=High (8x)
 value.pixelSize.16=Silly (16x)
 
+
 screen.COLOR=Color
+
 option.colorMode=Color Mode
 value.colorMode.0=HSV
 value.colorMode.1=RGB
+
 option.dithering=Dithering
+
 option.colorDepth=RGB Depth
 value.colorDepth.1=Monochrome
 value.colorDepth.3=3-bit
@@ -30,10 +35,13 @@ value.colorDepth.12=12-bit
 value.colorDepth.15=15-bit
 value.colorDepth.18=18-bit
 value.colorDepth.24=Truecolor
+
 option.monoPalette=Mono Palette
 value.monoPalette.0=Black & White
 value.monoPalette.1=Dot Matrix
 value.monoPalette.2=Paint the Town
+value.monoPalette.3=Noir
+
 option.hueBits=Hue Depth
 suffix.hueBits=-bit
 option.satBits=Saturation Depth
@@ -41,14 +49,20 @@ suffix.satBits=-bit
 option.valBits=Value Depth
 suffix.valBits=-bit
 
+
 screen.SCREEN=Screen
+
 option.interlacing=Interlacing
+
 option.scanlines=Scanlines
+
 option.aberration=Chromatic Aberration
+
 
 screen.CONSOLE=Consoles
 
 screen.PSX=PSX (1994)
+
 option.vWarp=Vertex Warping
 option.vWarp.comment=Emulates screen-space vertex snapping responsible for vertex wobble on the Playstation
 value.vWarp.0=Off
@@ -58,24 +72,30 @@ value.vWarp.4=Medium (4x)
 value.vWarp.8=High (8x)
 value.vWarp.16=Extreme (16x)
 value.vWarp.32=Silly (32x)
+
 option.tWarp=Texture Warping
 option.tWarp.comment=Emulates affine texture mapping responsible for warping textures on the Playstation
 
+
 screen.REALITY=Project Reality (1996)
+
 option.hBlur=Horizontal Blur
 option.hBlur.comment=Emulates the blur responsible for reducing LCD clarity on the N64
 
+
 screen.FX=FX
+
 option.dof=Depth of Field
 option.dof.comment=Downscale out-of-focus objects
+
 option.dofRes=DoF Dither
 option.dofRes.comment=Whether DoF focus affects dither resolution.
-value.dofRes.0=Static
-value.dofRes.1=Dynamic
+
 option.worldCurvature=World Curvature
 value.worldCurvature.0=Off
 value.worldCurvature.1=Cylinder
 value.worldCurvature.2=Round
+
 option.worldRadius=Curvature Strength
 value.worldRadius.1024=Low (1024)
 value.worldRadius.512=Medium (512)

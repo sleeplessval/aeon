@@ -148,7 +148,9 @@ void main() {
 
     #if colorMode == MODE_RGB && colorDepth == 1
         if(final.r == 1)
-            final = monoColor;
+            final = monoHigh;
+        else
+            final = monoLow;
     #endif
 
 	#ifdef interlacing

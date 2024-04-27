@@ -8,7 +8,7 @@
 #define valBits 2 // [1 2 3 4 5 6 7 8]
 
 #define colorDepth 6 // [1 3 6 8 12 15 18 24]
-#define monoPalette 0 // [0 1 2]
+#define monoPalette 0 // [0 1 2 3]
 
 #if colorMode == MODE_HSV
 	//	-- HSV --
@@ -44,11 +44,17 @@
 	#endif
 
 	#if		monoPalette == MONOCHROME_BW
-		vec3 monoColor = vec3(1, 1, 1);
+		vec3 monoHigh	= vec3(1);
+		vec3 monoLow	= vec3(0);
 	#elif	monoPalette == MONOCHROME_DOTMATRIX
-		vec3 monoColor = vec3(0.48, 0.72, 0.28);
+		vec3 monoHigh	= vec3(0.31, 0.40, 0.03);
+		vec3 monoLow	= vec3(0.17, 0.29, 0.13);
 	#elif	monoPalette == MONOCHROME_MOTIONSICK
-		vec3 monoColor = vec3(1, 0, 0);
+		vec3 monoHigh	= vec3(1, 0, 0);
+		vec3 monoLow	= vec3(0);
+	#elif	monoPalette == MONOCHROME_NOIR
+		vec3 monoHigh	= vec3(0.73, 0.67, 0.55);
+		vec3 monoLow	= vec3(0.26, 0.23, 0.19);
 	#endif
 
 #endif
