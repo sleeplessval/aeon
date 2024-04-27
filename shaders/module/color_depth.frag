@@ -1,4 +1,6 @@
 
+#include "/var/color_depth.glsl"
+
 #define colorMode 0 // [0 1]
 
 #define hueBits 2 // [1 2 3 4 5 6 7 8]
@@ -8,7 +10,7 @@
 #define colorDepth 6 // [1 3 6 8 12 15 18 24]
 #define monoPalette 0 // [0 1 2]
 
-#if colorMode == 0
+#if colorMode == MODE_HSV
 	//	-- HSV --
 
 	float bit_max(int bits) {
@@ -41,11 +43,11 @@
 		vec3 colormax = vec3(256, 256, 256);
 	#endif
 
-	#if		monoPalette == 0
+	#if		monoPalette == MONOCHROME_BW
 		vec3 monoColor = vec3(1, 1, 1);
-	#elif	monoPalette == 1
+	#elif	monoPalette == MONOCHROME_DOTMATRIX
 		vec3 monoColor = vec3(0.48, 0.72, 0.28);
-	#elif	monoPalette == 2
+	#elif	monoPalette == MONOCHROME_MOTIONSICK
 		vec3 monoColor = vec3(1, 0, 0);
 	#endif
 

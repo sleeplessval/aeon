@@ -125,20 +125,20 @@ void main() {
 	#endif
 	vec3 color = texture2D(gcolor, newcoord).rgb;
 
-    #if colorMode == 0
+    #if colorMode == MODE_HSV
         color = rgb2hsv(color).xyz;
     #endif
 
     vec3 final;
     #ifdef dithering
-        #if colorMode == 0
+        #if colorMode == MODE_HSV
             vec3 filtered = vec3(dither(color.x, hueMax), dither(color.y, satMax), dither(color.z, valMax)).rgb;
             final = hsv2rgb(filtered);
         #else
             final = vec3(dither(color.r, colormax.x), dither(color.g, colormax.y), dither(color.b, colormax.z));
         #endif
     #else
-        #if colorMode == 0
+        #if colorMode == MODE_HSV
             vec3 filtered = vec3(lightnessStep(color.x, hueMax), lightnessStep(color.y, satMax), lightnessStep(color.z, valMax)).rgb;
             final = hsv2rgb(filtered);
         #else
@@ -146,7 +146,7 @@ void main() {
         #endif
     #endif
 
-    #if colorMode == 1 && colorDepth == 1
+    #if colorMode == MODE_RGB && colorDepth == 1
         if(final.r == 1)
             final = monoColor;
     #endif
