@@ -54,10 +54,10 @@ screen.SCREEN=Screen
 
 option.interlacing=Interlacing
 
-option.scanlines=Scanlines
-value.scanlines.0=Off
-value.scanlines.1=Soft
-value.scanlines.2=Hard
+option.scanline=Scanlines
+value.scanline.0=Off
+value.scanline.1=Soft
+value.scanline.2=Hard
 
 option.aberration=Chromatic Aberration
 
