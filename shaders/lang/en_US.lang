@@ -56,6 +56,10 @@ option.signal=Signal
 value.signal.0=RGB (Off)
 value.signal.1=NTSC
 
+option.wire=Connector
+value.wire.0=Composite
+value.wire.1=S-Video
+
 option.interlacing=Interlacing
 
 option.scanline=Scanlines

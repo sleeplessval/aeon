@@ -2,6 +2,7 @@
 #include "/var/signal.glsl"
 
 #define signal 0 // [0 1]
+#define wire 0 // [0 1]
 
 vec3 ntsc(vec3 color) {
 	//	convert to YIQ
@@ -10,11 +11,17 @@ vec3 ntsc(vec3 color) {
 	float q = dot(color, vec3(0.211, -.523, 0.312));
 
 	//	faux ntsc signal
-	float carrier = 6.283 * 3.570 * gl_FragCoord.x;
+	float carrier = 6.283 * 3.570 * gl_FragCoord.x;		//	2π * 3.57MHz * x
 	float phase = sin(carrier) * i + cos(carrier) * q;
 	float quad = cos(carrier) * i - sin(carrier) * q;
 
 	//	decode faux signal
+	#if		wire == WIRE_COMPOSITE
+		float composite = phase + quad + (y * 5.500);	//	p + q + (y * 5.5MHz)
+		y = round(composite * 5.500) / 30.250;
+		phase = composite - quad - (y * 5.500);
+		quad = composite - phase - (y * 5.500);
+	#endif
 	i = quad * cos(carrier);
 	q = phase * sin(carrier);
 
