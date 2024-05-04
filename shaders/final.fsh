@@ -4,7 +4,6 @@
 
 //#define aberration
 //#define hBlur
-//#define scanlines
 
 varying vec2 texcoord;
 
@@ -13,6 +12,7 @@ uniform float viewWidth;
 
 #include "/module/aberration.frag"
 #include "/module/horizontal_blur.frag"
+#include "/module/scanline.frag"
 
 void main() {
 	vec3 color;
@@ -26,11 +26,8 @@ void main() {
 		color.rb = aberrate().rb;
 	#endif
 
-	#ifdef scanlines
-		if(mod(int(gl_FragCoord.y / (pixelSize * 2)), 2) == 0)
-			color.rgb *= 0.95;
-		else
-			color.rgb /= 0.95;
+	#if scanline > 0
+		color = scanlines(color);
 	#endif
 
 	gl_FragData[0] = vec4(color, 1);
