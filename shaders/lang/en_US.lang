@@ -52,6 +52,10 @@ suffix.valBits=-bit
 
 screen.SCREEN=Screen
 
+option.signal=Signal
+value.signal.0=RGB (Off)
+value.signal.1=NTSC
+
 option.interlacing=Interlacing
 
 option.scanline=Scanlines
