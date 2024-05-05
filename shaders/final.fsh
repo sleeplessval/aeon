@@ -33,6 +33,8 @@ void main() {
 	//	hardware post-processing effects
 	#if		signal == SIGNAL_NTSC
 		color = ntsc(color);
+	#elif	signal == SIGNAL_PAL
+		color = pal(color);
 	#endif
 
 	//	physical post-processing effects

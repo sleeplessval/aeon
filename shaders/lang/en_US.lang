@@ -52,9 +52,10 @@ suffix.valBits=-bit
 
 screen.SCREEN=Screen
 
-option.signal=Signal
-value.signal.0=RGB (Off)
+option.signal=Encoding
+value.signal.0=None
 value.signal.1=NTSC
+value.signal.2=PAL
 
 option.wire=Connector
 value.wire.0=Composite
