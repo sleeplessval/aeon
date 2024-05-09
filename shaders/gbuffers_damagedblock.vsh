@@ -1,4 +1,3 @@
-#version 120
 
-#include "/module/empty.vert"
+#include "/module/gbuffers_basic.vsh"
 
