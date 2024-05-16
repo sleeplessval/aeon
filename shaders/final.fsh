@@ -39,7 +39,7 @@ void main() {
 
 	//	physical post-processing effects
 	#ifdef aberration
-		color.rb = aberrate().rb;
+		color.rb = (color.rb + aberrate().rb) / 2;
 	#endif
 
 
