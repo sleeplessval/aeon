@@ -3,6 +3,7 @@ profile.DEFAULT=Default
 profile.AEON=Aeon Upstream
 profile.DOS=DOS
 profile.DOTMATRIX=Dot Matrix Game
+profile.EIGHTBIT=8-bit
 profile.OBRADINN=Obra Dinn
 profile.PSX=PSX
 profile.REALITY=Project Reality
